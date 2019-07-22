@@ -1,10 +1,10 @@
 <template>
 <ul>
-    <li v-for="item in items">
-        <a :href="item.path">{{item.title || item.path}}</a>
+    <li v-for="item in items" :key="item.path">
+        <router-link :to="item.path">{{item.title || item.path}}</router-link>
         <ul v-if="item.headers">
-            <li v-for="header in item.headers">
-                <a :href="item.path + header.slug">{{header.title}}</a>
+            <li v-for="header in item.headers" :key="header.slug">
+                <router-link :to="item.path + '#' + header.slug">{{header.title}}</router-link>
             </li>
         </ul>
     </li>

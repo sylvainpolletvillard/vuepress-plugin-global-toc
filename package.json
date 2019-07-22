@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-global-toc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vuepress plugin to add a global Table of Contents component",
   "main": "index.js",
   "scripts": {
