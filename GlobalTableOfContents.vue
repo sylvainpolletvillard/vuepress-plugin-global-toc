@@ -1,21 +1,16 @@
 <template>
 <ul>
-    <li v-for="item in items" :key="item.path">
-        <router-link :to="item.path">{{item.title || item.path}}</router-link>
-        <ul v-if="item.headers">
-            <li v-for="header in item.headers" :key="header.slug">
-                <router-link :to="item.path + '#' + header.slug">{{header.title}}</router-link>
-            </li>
-        </ul>
-    </li>
+    <GlobalTableOfContentsItem v-for="item in items" :key="item.title || item.path" :item="item" />    
 </ul>
 </template>
 
 <script>
 import { resolveSidebarItems } from '@vuepress/theme-default/util/'
+import GlobalTableOfContentsItem from "./GlobalTableOfContentsItem.vue";
 
 export default {
     name: "GlobalTableOfContents",
+    components: { GlobalTableOfContentsItem },
     computed:{
         items(){
             return resolveSidebarItems(
